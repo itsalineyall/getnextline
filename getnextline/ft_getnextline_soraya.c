@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getnextline.c                                   :+:      :+:    :+:   */
+/*   ft_getnextline_soraya.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 17:03:12 by alvieira          #+#    #+#             */
-/*   Updated: 2023/06/07 16:30:29 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:54:11 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,38 +41,47 @@ char	*ft_read(int fd, char *str)
 	return (str);
 }
 
-char	*get_next_line(int fd)
+char *get_next_line(int fd)
 {
-	char		*line;
-	static char	*s;
+    char *line;           // Variável para armazenar a linha lida
+    static char *s;       // Variável estática para armazenar o estado dos dados lidos
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	s = ft_read(fd, s);
-	if (!s)
-		return (NULL);
-	line = ft_get_line(s);
-	s = ft_new_line(s);
-	return (line);
+    if (fd < 0 || BUFFER_SIZE <= 0)
+        return (NULL);    // Verifica se o descritor de arquivo é inválido ou BUFFER_SIZE é zero/negativo
+
+    s = ft_read(fd, s);   // Chama a função ft_read para ler dados do arquivo e atualiza a variável s
+
+    if (!s)
+        return (NULL);    // Verifica se ocorreu algum erro durante a leitura ou se não há mais linhas a serem lidas
+
+    line = ft_get_line(s);    // Extrai uma linha completa de caracteres a partir dos dados contidos em s
+    s = ft_new_line(s);       // Atualiza s para remover a linha já lida e manter os dados restantes
+
+    return (line);        // Retorna a linha lida
 }
+
 
 int main(void)
 {
     int fd;
-    char *line;
-
+    // char *line;
+	
     fd = open("ola.txt", O_RDONLY); // ira abrir o arquivo test.txt para leitura
 	if (fd == -1)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	line = get_next_line(fd);
-	while(line)
-	{
-		printf("%s\n", line);
-		free(line);
-		line = get_next_line(fd);
-	}
+	// line = get_next_line(fd);
+	// while(line)
+	// {
+	// 	printf("%s\n", line);
+	// 	free(line);
+	// 	line = get_next_line(fd);
+	// }
+
+	char *str = ft_read(fd, NULL);
+	printf("ft_read = %s", str);
+	free(str);
 	return (0);
 }

@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   teste.c                                            :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 00:11:50 by alvieira          #+#    #+#             */
-/*   Updated: 2023/06/21 16:53:21 by alvieira         ###   ########.fr       */
+/*   Created: 2023/06/10 00:03:06 by alvieira          #+#    #+#             */
+/*   Updated: 2023/06/12 18:09:10 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h> //open e close | read e write
+#include "get_next_line.h"
 
-int main(void)
+char    *ft_read(char *str)
 {
-    int fd;
+    char	*array;
+	int		count;
 
-    fd = open("ola.txt", O_RDONLY); // ira abrir o arquivo test.txt para leitura
-
-    printf("fd: %d\n", fd);
+	array = malloc(sizeof(char) * BUFFER_SIZE)
 }

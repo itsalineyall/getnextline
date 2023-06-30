@@ -6,7 +6,7 @@
 /*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 17:27:58 by alvieira          #+#    #+#             */
-/*   Updated: 2023/06/07 16:28:36 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:56:00 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#define BUFFER_SIZE 42
+#define BUFFER_SIZE 10
 # endif
 
 # include <unistd.h>
