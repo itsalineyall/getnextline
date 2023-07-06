@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_soraya.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 17:45:35 by alvieira          #+#    #+#             */
-/*   Updated: 2023/06/10 00:04:10 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/07/06 10:56:19 by alinevieira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ char	*ft_get_line(char *s)
 /* Obtém o restante da última vez que get_next_line foi chamado.
 Primeiro, verifique se o ponteiro ud s existe. Caso contrário, limpe o ponteiro usando free e retorne nulo.
 Use str para alocar espaço para algo em s, salve o str, termine-o com null
-e, em seguida, limpe porque ele está armazenado em str. */
+e, em seguida, limpe porque ele está armazenado em str. */.
 char	*ft_new_line(char *s)
 {
 	int		i;

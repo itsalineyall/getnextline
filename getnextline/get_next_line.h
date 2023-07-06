@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 17:27:58 by alvieira          #+#    #+#             */
-/*   Updated: 2023/06/21 16:56:00 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/07/06 10:36:49 by alinevieira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # include <unistd.h>
 # include <stdio.h>
-# include <stdlib.h>
+# include <stdlib.h>  // 
 # include <fcntl.h> //open e close | read e write
 
 char	*ft_read(int fd, char *str);
