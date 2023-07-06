@@ -6,21 +6,26 @@
 /*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 00:03:06 by alvieira          #+#    #+#             */
-/*   Updated: 2023/07/06 12:27:33 by alinevieira      ###   ########.fr       */
+/*   Updated: 2023/07/06 14:55:24 by alinevieira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char    *ft_read(int fdchar *str)
+char    *ft_read(int fd, char *str)
 {
 	char	*array;
 	int		count;
 
-	array = malloc(sizeof(char) * BUFFER_SIZE);
+	array = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!array)
 		return(NULL);
-	array = read(fd, )
+	array = read(fd, str, BUFFER_SIZE);
+	count = 1;
+	while (!ft_strchr(str, '\0') || count != 0)
+	{
+		
+	}
 }
 
 char	*get_next_line(int fd)

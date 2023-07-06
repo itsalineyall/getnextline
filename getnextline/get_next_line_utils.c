@@ -6,7 +6,7 @@
 /*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:03:12 by alinevieira       #+#    #+#             */
-/*   Updated: 2023/07/06 11:56:21 by alinevieira      ###   ########.fr       */
+/*   Updated: 2023/07/06 14:36:56 by alinevieira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ char    *ft_free_join(char *s1, char *s2)
     if (!newstr)
 		return(NULL);
 	i = 0;
-	while (s1)
+	while (i < (int)ft_strlen(s1))
 	{
 		newstr[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (s2)
+	while (j < (int)ft_strlen(s2))
 	{
 		newstr[i] = s2[j];
 		i++;
