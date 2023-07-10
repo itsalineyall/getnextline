@@ -6,20 +6,20 @@
 /*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 00:03:06 by alvieira          #+#    #+#             */
-/*   Updated: 2023/07/09 22:27:27 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/07/10 18:38:40 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char    *ft_read(int fd, char *str)
+char	*ft_read(int fd, char *str)
 {
 	char	*array;
 	int		count;
 
 	array = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!array)
-		return(NULL);
+		return (NULL);
 	count = 1;
 	while (!ft_strchr(str, '\n') && count != 0)
 	{
@@ -51,18 +51,25 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int main(void)
-{
-	int	fd;
-	char *str;
-	char *line;
+// int main(void)
+// {
+// 	int	fd;
+// 	char *str;
+// 	char *line;
+// 	char *new;
+// 	char *get;
 
-	fd = open("ola.txt", O_RDONLY);
-	str = ft_read(fd, str);
-	
-	printf("ft_read = %s\n", str);
-	line = ft_get_line(str);
-	printf("ft_get_line = %s", line);
-	close(fd);
-	return (0);
-}
+// 	fd = open("ola.txt", O_RDONLY);
+// 	// str = ft_read(fd, str);
+// 	// printf("ft_read = %s\n", str);	
+// 	// line = ft_get_line(str);
+// 	// printf("ft_get_line = %s\n", line);
+// 	// new = ft_new_line(str);
+// 	// printf("ft_new_line = %s", new);
+// 	get = get_next_line(fd);
+// 	printf("get_next_line = %s\n", get);
+// 	get = get_next_line(fd);
+// 	printf("get_next_line = %s\n", get);
+// 	close(fd);
+// 	return (0);
+// }
