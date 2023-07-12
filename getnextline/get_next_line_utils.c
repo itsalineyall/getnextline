@@ -6,7 +6,7 @@
 /*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:03:12 by alinevieira       #+#    #+#             */
-/*   Updated: 2023/07/10 18:42:27 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:27:58 by alvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ char	*ft_strchr(const char *s, int c)
 		return (NULL);
 	str = (char *)s;
 	if ((char)c == '\0')
-		return ((char *)&s[i]);
+		return (&str[ft_strlen(s)]);
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 			return (&str[i]);
 		i++;
 	}
@@ -46,8 +46,8 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_free_join(char *s1, char *s2)
 {
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 	char	*newstr;
 
 	if (!s1)
@@ -57,17 +57,18 @@ char	*ft_free_join(char *s1, char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	newstr = (char *)malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
+	newstr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!newstr)
 		return (NULL);
 	i = -1;
-	while (++i < (int)ft_strlen(s1))
-		newstr[i] = s1[i];
+	if (s1)
+		while (++i < ft_strlen(s1))
+			newstr[i] = s1[i];
 	j = 0;
-	while (j < (int)ft_strlen(s2))
+	while (j < ft_strlen(s2))
 		newstr[i++] = s2[j++];
-	newstr[i] = '\0';
-	free(s2);
+	newstr[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
 	return (newstr);
 }
 
