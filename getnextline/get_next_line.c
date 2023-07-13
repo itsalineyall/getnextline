@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 00:03:06 by alvieira          #+#    #+#             */
-/*   Updated: 2023/07/12 17:54:39 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:02:27 by alinevieira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*ft_read(int fd, char *str)
 		array[count] = '\0';
 		str = ft_free_join(str, array);
 	}
+	free(array);
 	return (str);
 }
 

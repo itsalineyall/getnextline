@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvieira <alvieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alinevieira <alinevieira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 11:03:12 by alinevieira       #+#    #+#             */
-/*   Updated: 2023/07/12 18:27:58 by alvieira         ###   ########.fr       */
+/*   Updated: 2023/07/13 17:27:42 by alinevieira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	if (!str[i])
+	if (!str)
 		return (0);
 	while (str[i] != '\0')
 		i++;
@@ -27,18 +27,16 @@ size_t	ft_strlen(const char *str)
 char	*ft_strchr(const char *s, int c)
 {
 	int		i;
-	char	*str;
 
 	i = 0;
 	if (!s)
 		return (NULL);
-	str = (char *)s;
-	if ((char)c == '\0')
-		return (&str[ft_strlen(s)]);
-	while (str[i])
+	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i])
 	{
-		if (str[i] == (char)c)
-			return (&str[i]);
+		if (s[i] == c)
+			return ((char *)&s[i]);
 		i++;
 	}
 	return (NULL);
@@ -48,7 +46,7 @@ char	*ft_free_join(char *s1, char *s2)
 {
 	size_t		i;
 	size_t		j;
-	char	*newstr;
+	char		*newstr;
 
 	if (!s1)
 	{
@@ -61,11 +59,11 @@ char	*ft_free_join(char *s1, char *s2)
 	if (!newstr)
 		return (NULL);
 	i = -1;
-	if (s1)
-		while (++i < ft_strlen(s1))
-			newstr[i] = s1[i];
 	j = 0;
-	while (j < ft_strlen(s2))
+	if (s1)
+		while (s1[++i] != '\0')
+			newstr[i] = s1[i];
+	while (s2[j] != '\0')
 		newstr[i++] = s2[j++];
 	newstr[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
